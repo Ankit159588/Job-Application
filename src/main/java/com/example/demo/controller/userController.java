@@ -3,7 +3,6 @@ package com.example.demo.controller;
 import com.example.demo.DTO.request.CreateUserRequestDTO;
 import com.example.demo.DTO.request.UpdateUserRequestDTO;
 import com.example.demo.DTO.response.UserResponseDTO;
-import com.example.demo.entity.User;
 import com.example.demo.service.UserService;
 import org.springframework.web.bind.annotation.*;
 
@@ -19,7 +18,7 @@ public class userController {
     }
 
     // CREATE
-    @   PostMapping
+    @PostMapping
     public UserResponseDTO create(@RequestBody CreateUserRequestDTO dto) {
         return userService.createUser(dto);
     }
