@@ -10,9 +10,12 @@ import java.util.List;
 
 @Repository
 public interface ApplicationNoteRepository extends JpaRepository<ApplicationNote, Long> {
-    Page<ApplicationNote> findByJobApplication_User_Id(
-            Long userId,
-            Pageable pageable
-    );
-    List<ApplicationNote> findByJobApplication_Id(Long jobApplicationId);
+
+    Page<ApplicationNote> findByJobApplication_User_Id(Long userId, Pageable pageable);
+
+    // ordered (newest first)
+    List<ApplicationNote> findByJobApplication_IdOrderByCreatedAtDesc(Long jobApplicationId);
+
+    // ✅ paged notes for a job application (optional but useful)
+    Page<ApplicationNote> findByJobApplication_Id(Long jobApplicationId, Pageable pageable);
 }
